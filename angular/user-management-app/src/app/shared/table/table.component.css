@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
   flex-wrap: wrap;
   margin-top: 25px;
 }
@@ -28,7 +27,6 @@ thead th:hover {
   cursor: pointer;
 }
 
-
 tbody tr {
   background-color: #FAFAFA;
   box-shadow: none;
@@ -37,7 +35,6 @@ tbody tr {
 tbody tr:nth-child(even) {
   background-color: #F2F3F7;
 }
-
 
 tbody td {
   text-align: center;

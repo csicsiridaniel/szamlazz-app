@@ -17,13 +17,13 @@ public class UserService {
     }
 
     private void addSampleUsers() {
-        addUser("Anna", "Kovács", "Budapest, Váci út 1", "06101234567", true, User.Job.PEK);
+        addUser("Mária", "Kovács", "Budapest, Váci út 1", "06101234567", true, User.Job.PEK);
         addUser("Béla", "Szabó", "Debrecen, Piac utca 45", "06301234567", false, User.Job.HENTES);
         addUser("Csilla", "Nagy", "Szeged, Kossuth tér 5", "06201234567", true, User.Job.KERTESZ);
         addUser("Dávid", "Kis", "Pécs, Király utca 7", "06701234567", true, User.Job.PEK);
         addUser("Erika", "Fehér", "Győr, Baross utca 13", "06801234567", false, User.Job.HENTES);
         addUser("Ferenc", "Varga", "Miskolc, Széchenyi u. 88", "06901234567", true, User.Job.KERTESZ);
-        addUser("Gábor", "Tóth", "Eger, Dobó tér 10", "06501234567", true, User.Job.HENTES);
+        addUser("József", "Tóth", "Eger, Dobó tér 10", "06501234567", true, User.Job.HENTES);
     }
 
     private void addUser(String firstname, String lastname, String address,

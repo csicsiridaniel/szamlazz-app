@@ -31,7 +31,7 @@
         {{ sortDirection === 'asc' ? '▲' : '▼' }}
       </span>
     </th>
-    <th>Műveletek</th>
+    <th  style="max-width: 50px">Műveletek</th>
   </tr>
   </thead>
   <tbody>
@@ -39,7 +39,7 @@
     <td *ngFor="let col of columns">
       {{ col.valueFn ? col.valueFn(row) : row[col.key] }}
     </td>
-    <td>
+    <td style="max-width: 50px">
       <app-button
         text="Módosítás"
         backgroundColor="#4b86e2"
