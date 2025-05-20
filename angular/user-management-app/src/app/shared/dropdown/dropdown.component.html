@@ -1,0 +1,43 @@
+<div class="dropdown-container" [class.floating]="isOpen || selected != null && selected !== ''">
+  <label *ngIf="label" class="floating-label">{{ label }}</label>
+
+  <div class="dropdown-wrapper" [class.disabled]="disabled">
+    <div class="dropdown-toggle" (click)="toggleDropdown()">
+      <span class="selected-text">
+        {{ selected != null ? selected : '' }}
+      </span>
+
+      <ng-container *ngIf="selected !== null && showClear">
+        <span class="clear-icon" (click)="clearSelection($event)">✕</span>
+      </ng-container>
+
+      <span class="arrow" [class.open]="isOpen">
+        <i
+          class="fa-solid fa-chevron-down arrow"
+          [class.open]="isOpen"
+        ></i>
+      </span>
+    </div>
+
+    <div class="dropdown-panel" *ngIf="isOpen">
+      <div class="dropdown-filter" *ngIf="enableFilter">
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          (input)="applyFilter()"
+          placeholder="Szűrés..."
+        />
+      </div>
+
+      <ul class="dropdown-list">
+        <li
+          *ngFor="let option of filteredOptions"
+          (click)="selectOption(option)"
+          [class.selected]="option === selected"
+        >
+          {{ option }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

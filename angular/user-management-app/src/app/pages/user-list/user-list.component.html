@@ -1,0 +1,15 @@
+
+<app-button
+  text="Új felhasználó"
+  backgroundColor="#fc6a2c"
+  iconClass="fas fa-plus"
+  iconPosition="left"
+  (onButtonClick)="createUser()"
+></app-button>
+
+<app-table
+  [columns]="columns"
+  [data]="users"
+  (edit)="onEditUser($event)"
+  (delete)="onDeleteUser($event)"
+></app-table>

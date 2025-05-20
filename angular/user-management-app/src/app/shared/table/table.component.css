@@ -1,0 +1,92 @@
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  border-bottom: 1px solid #000000;
+}
+
+thead th {
+  text-align: center;
+  font-style: italic;
+  padding: 8px;
+  background-color: #F2F3F7;
+  transition: background-color 0.2s ease-in-out;
+  border-bottom: 1px solid #000000;
+}
+
+thead th:hover {
+  background-color: #e0e0e9;
+  cursor: pointer;
+}
+
+
+tbody tr {
+  background-color: #FAFAFA;
+  box-shadow: none;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #F2F3F7;
+}
+
+
+tbody td {
+  text-align: center;
+  padding: 10px 8px;
+  border: none;
+}
+
+
+.pagination {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.pagination button {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.pagination button:not(:disabled):hover {
+  text-decoration: underline;
+}
+
+.pagination-controls {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+
+.table-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.table-toolbar input {
+  padding: 4px 8px;
+  font-size: 14px;
+}

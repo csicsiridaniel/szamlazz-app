@@ -1,0 +1,32 @@
+.header-wrapper {
+  width: 100%;
+  position: sticky;
+  height: 120px;
+}
+
+.header-top {
+  background-color: #607a9e;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.logo-container img {
+  height: 50px;
+}
+
+.top-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-bottom {
+  background-color: #eef5fd;
+  color: #607a9e;
+  padding: 0.5rem 1rem;
+  height: 50%;
+}

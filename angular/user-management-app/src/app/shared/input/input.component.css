@@ -1,0 +1,55 @@
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.floating-label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 14px;
+  color: #888;
+  pointer-events: none;
+  background: white;
+  padding: 0 4px;
+  transition: 0.2s ease all;
+  z-index: 1;
+}
+
+.input-container.floating .floating-label {
+  top: -10px;
+  font-size: 12px;
+  color: #333;
+}
+
+.input-container input {
+  width: 100%;
+  height: 40px;
+  padding: 10px 12px 4px 12px;
+  border-radius: 6px;
+  border: 1px solid #c2c8b5;
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.input-container.error input {
+  border-color: red;
+}
+
+.input-container.disabled input {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}

@@ -1,0 +1,21 @@
+services:
+  backend:
+    build:
+      context: ./java/userapi
+    ports:
+      - "8080:8080"
+    networks:
+      - szamlanet
+
+  frontend:
+    build:
+      context: ./angular/user-management-app
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - szamlanet
+
+networks:
+  szamlanet:

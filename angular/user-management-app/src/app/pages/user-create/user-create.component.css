@@ -1,0 +1,36 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.card {
+  background-color: #f3f5f6;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+app-input,
+app-dropdown {
+  width: 100%;
+  display: block;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  width: 100%;
+}

@@ -1,0 +1,80 @@
+<!-- Keresőmező -->
+<div class="table-header">
+
+  <div >
+    <app-input
+      label="Keresés"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="filterData()"
+    ></app-input>
+  </div>
+
+  <div style="width: 15%">
+    <app-dropdown
+      label="A táblázat sorainak száma"
+      [options]="pageSizeOptions"
+      [(ngModel)]="pageSize"
+      (ngModelChange)="onPageSizeChange()"
+      [enableFilter]="true"
+      [showClear]="false"
+    ></app-dropdown>
+  </div>
+</div>
+
+<!-- Táblázat -->
+<table>
+  <thead>
+  <tr>
+    <th *ngFor="let col of columns" (click)="toggleSortByKey(col.key)" style="cursor: pointer">
+      {{ col.label }}
+      <span *ngIf="sortKey === col.key">
+        {{ sortDirection === 'asc' ? '▲' : '▼' }}
+      </span>
+    </th>
+    <th>Műveletek</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of pagedData">
+    <td *ngFor="let col of columns">
+      {{ col.valueFn ? col.valueFn(row) : row[col.key] }}
+    </td>
+    <td>
+      <app-button
+        text="Módosítás"
+        backgroundColor="#4b86e2"
+        iconClass="fas fa-user-pen"
+        iconPosition="left"
+        (onButtonClick)="onEdit(row)"
+        style="margin-right: 5px"
+      ></app-button>
+
+      <app-button
+        text="Törlés"
+        backgroundColor="#ef4444"
+        iconClass="fas fa-trash"
+        iconPosition="left"
+        (onButtonClick)="onDelete(row)"
+      ></app-button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Lapozó -->
+<div class="pagination">
+  <span>{{ totalItems }} elemből {{ fromItem }}–{{ toItem }} látható</span>
+
+  <button (click)="goToFirstPage()" [disabled]="currentPage === 1">≪</button>
+  <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">‹</button>
+
+  <button
+    *ngFor="let page of pageRange"
+    [disabled]="page === currentPage"
+    (click)="goToPage(page)">
+    {{ page }}
+  </button>
+
+  <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">›</button>
+  <button (click)="goToLastPage()" [disabled]="currentPage === totalPages">≫</button>
+</div>

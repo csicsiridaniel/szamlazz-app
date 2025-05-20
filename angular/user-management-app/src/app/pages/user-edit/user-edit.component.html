@@ -1,0 +1,78 @@
+<div class="card-container">
+
+  <div class="card">
+    <h2>Szerkesztés</h2>
+
+    <form [formGroup]="form" (ngSubmit)="editUser()">
+
+      <app-input
+        formControlName="lastname"
+        label="Vezetéknév"
+        [required]="true"
+        [minlength]="2"
+        [maxlength]="64"
+      ></app-input>
+
+      <app-input
+        formControlName="firstname"
+        label="Keresztnév"
+        [required]="true"
+        [minlength]="2"
+        [maxlength]="64"
+      ></app-input>
+
+      <app-input
+        formControlName="address"
+        label="Cím"
+        [maxlength]="128"
+      ></app-input>
+
+      <app-input
+        formControlName="telephone"
+        label="Telefon"
+        [maxlength]="128"
+      ></app-input>
+
+      <app-dropdown
+        formControlName="job"
+        label="Munkakör"
+        [options]="jobOptions"
+        [enableFilter]="true"
+        [showClear]="false"
+      ></app-dropdown>
+
+      <div style="margin-bottom: 20px">
+        <label>Aktív:</label>
+        <input type="checkbox" formControlName="active" />
+      </div>
+
+      <div class="form-buttons">
+        <app-button
+          text="Mégsem"
+          backgroundColor="#d7d2cb"
+          iconClass="fas fa-circle-xmark"
+          iconPosition="left"
+          (onButtonClick)="cancelEdit()"
+        ></app-button>
+
+        <app-button
+          text="Törlés"
+          backgroundColor="#ef4444"
+          iconClass="fas fa-trash"
+          iconPosition="left"
+          (onButtonClick)="deleteUser()"
+        ></app-button>
+
+        <app-button
+          text="Módosítás"
+          backgroundColor="#4b86e2"
+          iconClass="fas fa-floppy-disk"
+          iconPosition="left"
+          type="submit"
+          [disabled]="form.invalid"
+        ></app-button>
+      </div>
+
+    </form>
+  </div>
+</div>

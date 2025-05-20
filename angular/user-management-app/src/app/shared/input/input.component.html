@@ -1,0 +1,26 @@
+<div
+  class="input-container"
+  [class.floating]="isFocused || value"
+  [class.error]="hasError()"
+  [class.disabled]="disabled"
+>
+  <label class="floating-label">{{ label }}</label>
+
+  <input
+    type="text"
+    [value]="value"
+    [placeholder]="isFocused ? placeholder : ''"
+    [disabled]="disabled"
+    [required]="required"
+    [attr.minlength]="minlength"
+    [attr.maxlength]="maxlength"
+    (input)="handleInput($event)"
+    (focus)="isFocused = true"
+    (blur)="isFocused = false; onTouched()"
+  />
+
+  <div class="error-message" *ngIf="getErrorMessage()">
+    {{ getErrorMessage() }}
+  </div>
+</div>
+
