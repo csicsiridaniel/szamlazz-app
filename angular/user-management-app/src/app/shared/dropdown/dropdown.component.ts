@@ -1,11 +1,13 @@
 import {
   Component,
-  Input,
-  Output,
-  EventEmitter,
   ElementRef,
+  EventEmitter,
+  forwardRef,
   HostListener,
-  OnInit, forwardRef, Injector
+  Injector,
+  Input,
+  OnInit,
+  Output
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -49,10 +51,13 @@ export class DropdownComponent<T = string> implements OnInit, ControlValueAccess
   filterText = '';
   filteredOptions: T[] = [];
 
-  private onChange: (value: T | null) => void = () => {};
-  private onTouched: () => void = () => {};
+  private onChange: (value: T | null) => void = () => {
+  };
+  private onTouched: () => void = () => {
+  };
 
-  constructor(private _eref: ElementRef, private injector: Injector) {}
+  constructor(private _eref: ElementRef, private injector: Injector) {
+  }
 
   ngOnInit() {
     this.filteredOptions = [...this._options];

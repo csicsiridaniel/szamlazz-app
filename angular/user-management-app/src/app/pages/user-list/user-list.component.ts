@@ -16,17 +16,22 @@ export class UserListComponent implements OnInit {
     {
       key: 'fullname',
       label: 'Név',
-      valueFn: (row: User) => {return row.lastname + ' ' + row.firstname},
+      valueFn: (row: User) => {
+        return row.lastname + ' ' + row.firstname
+      },
     },
-    { key: 'job', label: 'Foglalkozás' },
+    {key: 'job', label: 'Foglalkozás'},
     {
       key: 'active',
       label: 'Aktív',
-      valueFn: (row: User) => {return row.active ?  'Igen' : 'Nem' },
+      valueFn: (row: User) => {
+        return row.active ? 'Igen' : 'Nem'
+      },
     }
   ];
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {
+  }
 
   ngOnInit() {
     this.loadUsers();

@@ -43,6 +43,7 @@
         ></app-button>
 
         <app-button
+          [title]="form.invalid ? 'Az űrlap hibákat tartalmaz' : ''"
           text="Létrehozás"
           backgroundColor="#4b86e2"
           iconClass="fas fa-floppy-disk"

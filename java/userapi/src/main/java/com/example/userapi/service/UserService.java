@@ -2,12 +2,8 @@ package com.example.userapi.service;
 
 
 import com.example.userapi.model.User;
+import jakarta.validation.*;
 import org.springframework.stereotype.Service;
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.ConstraintViolationException;
-import jakarta.validation.Validation;
-import jakarta.validation.Validator;
-import jakarta.validation.ValidatorFactory;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;

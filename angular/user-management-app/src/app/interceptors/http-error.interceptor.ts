@@ -1,10 +1,14 @@
-// src/app/core/interceptors/http-error.interceptor.ts
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
-  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse, HttpResponse
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
 } from '@angular/common/http';
 import {map, Observable, throwError} from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
@@ -12,7 +16,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
-        if (event instanceof HttpResponse && event.body?.error){
+        if (event instanceof HttpResponse && event.body?.error) {
 
         }
         return event;
@@ -28,8 +32,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           });
 
           errorMessage = messages.join('\n');
-        }
-        else if (error.error instanceof ErrorEvent) {
+        } else if (error.error instanceof ErrorEvent) {
           errorMessage = `Hiba: ${error.error.message}`;
         } else {
           errorMessage = `Hiba (${error.status}): ${error.message}`;

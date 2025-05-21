@@ -1,4 +1,4 @@
-import {Component, forwardRef, Injector, Input, OnInit, Optional, Self} from '@angular/core';
+import {Component, forwardRef, Injector, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
 
 @Component({
@@ -25,8 +25,10 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   value: string = '';
   isFocused: boolean = false;
 
-  onChange: any = () => {};
-  onTouched: any = () => {};
+  onChange: any = () => {
+  };
+  onTouched: any = () => {
+  };
 
   ngControl: NgControl | null = null;
 

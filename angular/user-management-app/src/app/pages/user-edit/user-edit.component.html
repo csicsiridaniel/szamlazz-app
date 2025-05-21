@@ -43,7 +43,7 @@
 
       <div style="margin-bottom: 20px">
         <label>Aktív:</label>
-        <input type="checkbox" formControlName="active" />
+        <input type="checkbox" formControlName="active"/>
       </div>
 
       <div class="form-buttons">
@@ -64,6 +64,7 @@
         ></app-button>
 
         <app-button
+          [title]="form.invalid ? 'Az űrlap hibákat tartalmaz' : ''"
           text="Módosítás"
           backgroundColor="#4b86e2"
           iconClass="fas fa-floppy-disk"

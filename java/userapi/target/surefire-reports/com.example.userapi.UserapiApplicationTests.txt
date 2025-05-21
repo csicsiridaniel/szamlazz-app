@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.userapi.UserapiApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.759 s -- in com.example.userapi.UserapiApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.952 s -- in com.example.userapi.UserapiApplicationTests

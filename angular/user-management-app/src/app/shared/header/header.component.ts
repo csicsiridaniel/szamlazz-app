@@ -11,7 +11,8 @@ import {filter, map} from 'rxjs';
 export class HeaderComponent implements OnInit {
   pageTitle = '';
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.router.events

@@ -11,7 +11,7 @@ export class ButtonComponent implements OnChanges {
   @Input() backgroundColor: string = '#e0e0e0';
   @Input() iconClass: string = '';
   @Input() iconPosition: 'left' | 'right' = 'left';
-  @Input() disabled : boolean = false;
+  @Input() disabled: boolean = false;
 
   @Output() onButtonClick = new EventEmitter<any>();
 
@@ -32,7 +32,7 @@ export class ButtonComponent implements OnChanges {
     return brightness > 150 ? 'black' : 'white';
   }
 
-  onClick(){
+  onClick() {
     this.onButtonClick.emit();
   }
 }
