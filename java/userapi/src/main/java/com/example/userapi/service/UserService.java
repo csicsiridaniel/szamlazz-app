@@ -3,16 +3,25 @@ package com.example.userapi.service;
 
 import com.example.userapi.model.User;
 import org.springframework.stereotype.Service;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
     private final Map<Long, User> users = new HashMap<>();
     private final AtomicLong idGenerator = new AtomicLong(1);
+    private final Validator validator;
 
     public UserService() {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        this.validator = factory.getValidator();
         addSampleUsers();
     }
 
@@ -37,6 +46,8 @@ public class UserService {
         user.setActive(active);
         user.setJob(job);
 
+        validateUser(user);
+
         users.put(user.getId(), user);
     }
 
@@ -50,6 +61,7 @@ public class UserService {
 
     public User createUser(User user) {
         user.setId(idGenerator.getAndIncrement());
+        validateUser(user);
         users.put(user.getId(), user);
         return user;
     }
@@ -57,11 +69,22 @@ public class UserService {
     public Optional<User> updateUser(Long id, User updatedUser) {
         if (!users.containsKey(id)) return Optional.empty();
         updatedUser.setId(id);
+        validateUser(updatedUser);
         users.put(id, updatedUser);
         return Optional.of(updatedUser);
     }
 
     public boolean deleteUser(Long id) {
         return users.remove(id) != null;
+    }
+
+    private void validateUser(User user) {
+        Set<ConstraintViolation<User>> violations = validator.validate(user);
+        if (!violations.isEmpty()) {
+            String errors = violations.stream()
+                    .map(v -> v.getPropertyPath() + " " + v.getMessage())
+                    .collect(Collectors.joining(", "));
+            throw new ConstraintViolationException("User validation failed: " + errors, violations);
+        }
     }
 }

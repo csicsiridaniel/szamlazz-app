@@ -1,15 +1,18 @@
-<button
-  [ngStyle]="{ 'background-color': backgroundColor, color: textColor }"
-  (click)="onClick()"
-  [disabled]="disabled"
->
+<span [title]="disabled ? 'Az űrlap hibákat tartalmaz' : null" >
+  <button
+    [ngStyle]="{ 'background-color': backgroundColor, color: textColor }"
+    (click)="onClick()"
+    [disabled]="disabled"
+  >
   <ng-container *ngIf="iconClass && iconPosition === 'left'">
     <i [class]="iconClass" class="icon"></i>
   </ng-container>
 
-  {{ text.toUpperCase() }}
+    {{ text.toUpperCase() }}
 
-  <ng-container *ngIf="iconClass && iconPosition === 'right'">
+    <ng-container *ngIf="iconClass && iconPosition === 'right'">
     <i [class]="iconClass" class="icon"></i>
   </ng-container>
 </button>
+</span>
+
